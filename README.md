@@ -16,9 +16,7 @@ A compact set of *procedures* for reducing predictable LLM failure modes (symbol
 4. Append **Calibration**: `Confidence X/5; would change if Y`.
 
 ## Local checks
-```bash
-make check
-```
+`make check`
 
 ## What’s inside
 - `llm_reliability_playbook.md` — original seed/index
