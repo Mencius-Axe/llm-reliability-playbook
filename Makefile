@@ -1,6 +1,6 @@
 .PHONY: check protocol evals
 
-check: protocol evals links
+check: protocol complete evals links
 
 protocol:
 	python3 scripts/check_protocol_structure.py
@@ -11,3 +11,6 @@ evals:
 
 links:
 	python3 scripts/check_doc_links.py
+
+complete:
+	python3 scripts/check_protocol_completeness.py
