@@ -18,3 +18,5 @@ jobs:
         run: python3 scripts/check_protocol_completeness.py
       - name: Check eval schemas
         run: python scripts/check_evals_schema.py
+      - name: Check pasted-terminal junk
+        run: python3 scripts/check_no_paste_junk.py

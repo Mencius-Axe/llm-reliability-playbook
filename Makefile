@@ -1,6 +1,6 @@
 .PHONY: check protocol evals
 
-check: protocol complete evals links
+check: protocol complete evals links junk
 
 protocol:
 	python3 scripts/check_protocol_structure.py
@@ -14,3 +14,6 @@ links:
 
 complete:
 	python3 scripts/check_protocol_completeness.py
+
+junk:
+	python3 scripts/check_no_paste_junk.py
