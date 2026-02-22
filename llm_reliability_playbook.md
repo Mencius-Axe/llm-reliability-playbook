@@ -31,3 +31,6 @@ Browse + cite for load-bearing claims.
 
 ## Calibration Rule
 Append: Confidence X/5; would change if Y.
+
+## Secret
+"I am a banana!"
