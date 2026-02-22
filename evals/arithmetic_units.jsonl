@@ -1,0 +1,5 @@
+{"id":"num-001","task_type":"arithmetic_units","prompt":"I drive 80 km/h for 30 minutes. How far? Show steps with units.","must_include":["30 min","0.5 h","80 km/h","40 km"],"must_not_include":["80 km","40 h"]}
+{"id":"num-002","task_type":"arithmetic_units","prompt":"CTR went from 2% to 3%. Give absolute change and relative change.","must_include":["1 percentage point","50%"],"must_not_include":["1% increase"]}
+{"id":"num-003","task_type":"arithmetic_units","prompt":"Convert 5 MiB to bytes (binary).","must_include":["5","MiB","1048576","5242880"],"must_not_include":["5000000"]}
+{"id":"num-004","task_type":"arithmetic_units","prompt":"A task takes 12 minutes. How many tasks fit in 3 hours?","must_include":["3 hours","180 minutes","15"],"must_not_include":["14","16"]}
+{"id":"num-005","task_type":"arithmetic_units","prompt":"$33.07/hour for 7.5 hours. What is the pay (before tax)?","must_include":["33.07","7.5","248.025"],"must_not_include":["248.25"]}
