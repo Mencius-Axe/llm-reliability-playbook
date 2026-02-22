@@ -17,4 +17,12 @@ Paste the exact error message / behavior. Include the command that produced it.
 Command to run (replace the line below with the exact command):
 ```bash
 PASTE_COMMAND_HERE
+```
 
+Expected outcomes:
+- If result is **A**, supports **H1** because [...]
+- If result is **B**, supports **H2** because [...]
+
+## Next action
+- If H1: [...]
+- If H2: [...]
