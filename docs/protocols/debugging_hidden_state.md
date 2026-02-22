@@ -53,7 +53,6 @@ Do not use when:
 If it works, supports H2; if not, supports H1.
 
 ## Discriminating tests (patterns)
-- **Minimize environment:** `env -i ...` (strip env vars)
-- **Fresh config:** set `XDG_CONFIG_HOME` to temp dir
-- **Version truth:** `--version` for every layer (kernel, driver, app)
-- **Network layer split:** IP reachability (`ping`), DNS (`dig`), TLS (`curl -v`)
+- Strip environment to isolate hidden state: `env -i HOME="$HOME" XDG_CONFIG_HOME="$(mktemp -d)" <command>`
+- Split network layers: DNS (`dig`), IP reachability (`ping`), TLS (`curl -v`) — pick one that separates H1 vs H2
+- Version truth check across layers: `<tool> --version`, `uname -a`, driver version (if relevant)

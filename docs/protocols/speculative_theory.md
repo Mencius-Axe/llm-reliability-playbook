@@ -53,6 +53,6 @@ Do not use when:
 - Blinded assessment + pre-registered analysis
 
 ## Discriminating tests (patterns)
-- Swap one component at a time (A/B)
-- Cross-context replication (different network/machine/time)
-- Introduce a negative control
+- Identify a prediction that differs in sign/direction between models (not just magnitude)
+- Run a swap test (A/B): change one component/context variable at a time to see which model survives
+- Add a negative control (condition where the effect should disappear under M1 but persist under M2, or vice versa)
