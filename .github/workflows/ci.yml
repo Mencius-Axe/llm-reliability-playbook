@@ -3,20 +3,15 @@ name: CI
 on:
   push:
   pull_request:
+  workflow_dispatch:
 
 jobs:
-  structure:
+  checks:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.x"
-      - name: Check protocol structure
-        run: python scripts/check_protocol_structure.py
-      - name: Check protocol completeness
-        run: python3 scripts/check_protocol_completeness.py
-      - name: Check eval schemas
-        run: python scripts/check_evals_schema.py
-      - name: Check pasted-terminal junk
-        run: python3 scripts/check_no_paste_junk.py
+      - name: Run repo checks
+        run: make check
