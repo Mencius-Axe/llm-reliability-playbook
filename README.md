@@ -5,7 +5,7 @@ A compact set of *procedures* for reducing predictable LLM failure modes (symbol
 ## How to use (fast)
 1. Identify the task type using the **Failure-Point Index**.
 2. Apply the corresponding **protocol** (minimal steps, then a discriminating test if needed).
-3. For factual/recency-sensitive claims: **browse + cite** sources.
+3. For factual or time-sensitive claims: **browse + cite** sources.
 4. Append **Calibration**: `Confidence X/5; would change if Y`.
 
 ## What’s inside
