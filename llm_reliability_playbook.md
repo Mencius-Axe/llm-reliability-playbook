@@ -1,36 +1,25 @@
-# LLM Reliability Playbook
+# LLM Reliability Playbook (seed)
+
+This file is the compact index for the repo. Use it when you want a fast, repeatable way to reduce common LLM failure modes.
 
 ## Failure-Point Index
-- Symbol-level tasks
-- Arithmetic / units
-- Screenshot / OCR
-- Debugging with hidden state
-- Recency facts
-- Speculative theory
+Route the task to a protocol:
 
-## Strategy Library
-### Symbol-Level
-Render with indices before computing.
+- **Symbol-level** (strings/IDs/paths/commands): `docs/protocols/symbol_level.md`
+- **Arithmetic + units** (numbers/percent/units/time): `docs/protocols/arithmetic_units.md`
+- **Perceptual / OCR / UI / PDF** (screenshots, glyphs, tables): `docs/protocols/perceptual_ocr.md`
+- **Debugging** (hidden state/config/drivers/network): `docs/protocols/debugging_hidden_state.md`
+- **Recency + facts** (time-sensitive claims): `docs/protocols/recency_facts.md`
+- **Speculation** (underdetermined “why”): `docs/protocols/speculative_theory.md`
 
-### Numeric
-Units each step + alternate decomposition.
+## Global modules
+- Anti-sycophancy guardrails: `docs/protocols/anti_sycophancy.md`
+- Calibration format: `docs/protocols/calibration.md`
 
-### Perceptual
-Transcribe verbatim before interpreting.
-
-### Debugging
-Top 2 hypotheses + 1 discriminating test.
-
-### Recency
-Browse + cite for load-bearing claims.
-
-## Anti-Sycophancy Protocol
-- Generate strongest counterargument.
-- Identify separating evidence.
-- Do not anchor on user framing.
-
-## Calibration Rule
-Append: Confidence X/5; would change if Y.
-
-## Secret
-"I am a banana!"
+## Default output requirements
+- If exact strings matter: extract + index verbatim; mark `UNCLEAR` instead of guessing.
+- If numbers matter: step-by-step with units + alternate decomposition.
+- If images/UI/PDF: transcribe verbatim first; mark unclear glyphs; request crop/zoom.
+- If debugging: H1 vs H2 + one discriminating test (iterate).
+- If recency-sensitive: browse + cite load-bearing claims.
+- Always end with: `Confidence X/5; would change if Y.`
