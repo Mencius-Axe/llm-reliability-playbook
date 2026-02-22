@@ -2,7 +2,7 @@
 
 ## Triggers
 Use this protocol when correctness depends on exact characters or ordering:
-- File paths, URLs, commit hashes, IDs, serials, API keys (redact), flags, CLI commands
+- File paths, URLs, commit hashes, IDs, serials, flags, CLI commands
 - Code that must compile/run
 - Quoted text where a single character changes meaning
 
@@ -18,8 +18,8 @@ Do not use when:
 4. If any symbol is uncertain/ambiguous, **mark it explicitly** as `UNCLEAR` and stop guessing.
 5. **Compute/check transforms** only after extraction (e.g., join, split, regex, escaping).
 6. When generating a command, include **context**: working directory assumptions + required tools.
-7. Provide a **copy-paste safe** block (avoid “smart quotes”; no line wrapping).
-8. Add a **sanity check** step the user can run (e.g., `ls`, `which`, `echo`, `test -e`).
+7. Provide a **copy-paste safe** block (avoid smart quotes; avoid line-wrapping in prose).
+8. Add a **sanity check** the user can run (existence, version, echo/backprint).
 9. If multiple variants exist, give **two explicit options** and a discriminating check.
 10. Append **calibration**: `Confidence X/5; change if Y`.
 
@@ -42,4 +42,30 @@ Symbols:
 Command (bash):
 ```bash
 wc -l -- "/home/me/My Folder/data.csv"
+Sanity check (bash/zsh):
 
+[[ -f "/home/me/My Folder/data.csv" ]] && echo OK || echo MISSING
+
+Sanity check (POSIX sh):
+
+[ -f "/home/me/My Folder/data.csv" ] && echo OK || echo MISSING
+Example B — Incorrect handling (silent mutation)
+
+Assistant (bad):
+
+Removes the space (MyFolder)
+
+Uses “smart quotes”
+
+Alters punctuation/escaping
+
+Silently “normalizes” case
+
+Discriminating tests
+
+Path exists: [[ -e "<PATH>" ]] (bash/zsh) or [ -e "<PATH>" ] (POSIX)
+
+Command available: command -v <tool>
+
+Show invisible characters in pasted text:
+python3 -c 'import sys; print(repr(sys.stdin.read()))' (paste, then Ctrl-D)
