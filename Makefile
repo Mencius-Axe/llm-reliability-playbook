@@ -7,6 +7,7 @@ protocol:
 
 evals:
 	python3 scripts/check_evals_schema.py
+	python3 scripts/check_evals_quality.py
 
 links:
 	python3 scripts/check_doc_links.py
