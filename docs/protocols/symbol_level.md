@@ -40,32 +40,28 @@ Symbols:
 1. `/home/me/My Folder/data.csv`
 
 Command (bash):
-```bash
+~~~bash
 wc -l -- "/home/me/My Folder/data.csv"
-Sanity check (bash/zsh):
+~~~
 
+Sanity check (bash/zsh):
+~~~bash
 [[ -f "/home/me/My Folder/data.csv" ]] && echo OK || echo MISSING
+~~~
 
 Sanity check (POSIX sh):
-
+~~~sh
 [ -f "/home/me/My Folder/data.csv" ] && echo OK || echo MISSING
-Example B — Incorrect handling (silent mutation)
+~~~
 
-Assistant (bad):
+### Example B — Incorrect handling (silent mutation)
+**Assistant (bad):**
+- Removes the space (`MyFolder`)
+- Uses “smart quotes”
+- Alters punctuation/escaping
+- Silently “normalizes” case
 
-Removes the space (MyFolder)
-
-Uses “smart quotes”
-
-Alters punctuation/escaping
-
-Silently “normalizes” case
-
-Discriminating tests
-
-Path exists: [[ -e "<PATH>" ]] (bash/zsh) or [ -e "<PATH>" ] (POSIX)
-
-Command available: command -v <tool>
-
-Show invisible characters in pasted text:
-python3 -c 'import sys; print(repr(sys.stdin.read()))' (paste, then Ctrl-D)
+## Discriminating tests
+- Path exists: `[[ -e "<PATH>" ]]` (bash/zsh) or `[ -e "<PATH>" ]` (POSIX)
+- Command available: `command -v <tool>`
+- Show invisible characters in pasted text: `python3 -c 'import sys; print(repr(sys.stdin.read()))'` (paste, then Ctrl-D)
