@@ -1,12 +1,24 @@
 # LLM Reliability Playbook
 
+[![CI](https://github.com/Mencius-Axe/llm-reliability-playbook/actions/workflows/ci.yml/badge.svg)](https://github.com/Mencius-Axe/llm-reliability-playbook/actions/workflows/ci.yml)
+
 A compact set of *procedures* for reducing predictable LLM failure modes (symbol-level errors, arithmetic/units slips, OCR/perception mistakes, debugging ambiguity, recency drift, and speculative overreach).
 
+## Start here
+- Protocol index: `docs/index.md`
+- Copy/paste templates: `templates/`
+- Evals (JSONL): `evals/`
+
 ## How to use (fast)
-1. Identify the task type using the **Failure-Point Index**.
+1. Identify the task type using the **Failure-Point Index** (`docs/index.md`).
 2. Apply the corresponding **protocol** (minimal steps, then a discriminating test if needed).
 3. For factual or time-sensitive claims: **browse + cite** sources.
 4. Append **Calibration**: `Confidence X/5; would change if Y`.
+
+## Local checks
+```bash
+make check
+```
 
 ## What’s inside
 - `llm_reliability_playbook.md` — original seed/index
@@ -15,30 +27,5 @@ A compact set of *procedures* for reducing predictable LLM failure modes (symbol
 - `evals/` — tiny test sets to catch regressions
 - `.github/workflows/` — CI checks (structure + schemas)
 
-## Repository map (planned)
-    docs/
-      index.md
-      protocols/
-        symbol_level.md
-        arithmetic_units.md
-        perceptual_ocr.md
-        debugging_hidden_state.md
-        recency_facts.md
-        speculative_theory.md
-        anti_sycophancy.md
-        calibration.md
-    templates/
-      response_skeleton.md
-      dbg_protocol.md
-      recency_check.md
-    evals/
-      symbol_level.jsonl
-      arithmetic_units.jsonl
-
 ## Contributing
-Add new protocols as short decision procedures:
-- Triggers / Anti-triggers
-- Minimal procedure (≤10 steps)
-- Common failure modes
-- 2–3 worked examples (good vs bad)
-- Discriminating tests (where applicable)
+See `CONTRIBUTING.md`.
