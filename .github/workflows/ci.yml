@@ -14,5 +14,7 @@ jobs:
           python-version: "3.x"
       - name: Check protocol structure
         run: python scripts/check_protocol_structure.py
+      - name: Check protocol completeness
+        run: python3 scripts/check_protocol_completeness.py
       - name: Check eval schemas
         run: python scripts/check_evals_schema.py
