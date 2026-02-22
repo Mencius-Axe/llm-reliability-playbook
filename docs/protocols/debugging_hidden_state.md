@@ -52,7 +52,7 @@ Do not use when:
   `env -i HOME="$HOME" XDG_CONFIG_HOME="$(mktemp -d)" <app>`
 If it works, supports H2; if not, supports H1.
 
-## Discriminating tests (patterns)
+## Discriminating tests
 - Strip environment to isolate hidden state: `env -i HOME="$HOME" XDG_CONFIG_HOME="$(mktemp -d)" <command>`
 - Split network layers: DNS (`dig`), IP reachability (`ping`), TLS (`curl -v`) — pick one that separates H1 vs H2
 - Version truth check across layers: `<tool> --version`, `uname -a`, driver version (if relevant)

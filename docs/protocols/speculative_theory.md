@@ -52,7 +52,7 @@ Do not use when:
 - Counterbalanced sham condition
 - Blinded assessment + pre-registered analysis
 
-## Discriminating tests (patterns)
+## Discriminating tests
 - Identify a prediction that differs in sign/direction between models (not just magnitude)
 - Run a swap test (A/B): change one component/context variable at a time to see which model survives
 - Add a negative control (condition where the effect should disappear under M1 but persist under M2, or vice versa)
