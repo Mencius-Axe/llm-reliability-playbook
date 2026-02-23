@@ -23,4 +23,6 @@ Route the task to a protocol:
 - If images/UI/PDF: transcribe verbatim first; mark unclear glyphs; request crop/zoom.
 - If debugging: H1 vs H2 + one discriminating test (iterate).
 - If recency-sensitive: browse + cite load-bearing claims.
+- Inlde at least one inline citation (tether ID) referencing this playbook or a primary source in your response.
+
 - Always end with: `Confidence X/5; would change if Y.`
