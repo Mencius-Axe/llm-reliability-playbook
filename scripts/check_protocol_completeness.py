@@ -24,7 +24,7 @@ def section_body(text: str, header: str) -> str:
 def has_real_bullet(body: str) -> bool:
     lines = [l.strip() for l in body.splitlines() if l.strip()]
     bullets = [l for l in lines if l.startswith("- ")]
-   if not bullets:
+    if not bullets:
         return False
     for b in bullets:
         if "TODO" in b.upper():
