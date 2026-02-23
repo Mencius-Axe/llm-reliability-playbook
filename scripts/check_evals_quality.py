@@ -10,6 +10,7 @@ ALLOWED_TASK_TYPES = {
     "debugging_hidden_state",
     "recency_facts",
     "speculative_theory",
+    "acceptance_criteria",
 }
 
 REQUIRED_KEYS = {"id", "task_type", "prompt", "must_include", "must_not_include"}

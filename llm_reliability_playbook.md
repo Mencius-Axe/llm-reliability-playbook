@@ -11,6 +11,7 @@ Route the task to a protocol:
 - **Debugging** (hidden state/config/drivers/network): `docs/protocols/debugging_hidden_state.md`
 - **Recency + facts** (time-sensitive claims): `docs/protocols/recency_facts.md`
 - **Speculation** (underdetermined “why”): `docs/protocols/speculative_theory.md`
+- **Acceptance criteria (definition of done)**: `docs/protocols/acceptance_criteria.md`
 
 ## Global modules
 - Anti-sycophancy guardrails: `docs/protocols/anti_sycophancy.md`

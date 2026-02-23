@@ -9,6 +9,7 @@ Use this page to route to the right protocol quickly.
 - **Debugging (hidden state / config / drivers / networks)** → `protocols/debugging_hidden_state.md`
 - **Recency + facts (anything time-sensitive)** → `protocols/recency_facts.md`
 - **Speculation (competing models required)** → `protocols/speculative_theory.md`
+- **Acceptance criteria (definition of done)**: `protocols/acceptance_criteria.md`
 
 ## Global modules
 - Anti-sycophancy guardrails → `protocols/anti_sycophancy.md`
