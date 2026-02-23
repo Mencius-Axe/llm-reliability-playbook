@@ -15,8 +15,7 @@ HEADERS = [
     "## Discriminating tests",
 ]
 
-def section_body(text: str, header: str) -> st
-r
+def section_body(text: str, header: str) -> str:
     # crude but robust: capture from header to next "## "
     pat = re.compile(re.escape(header) + r"\n(.*?)(?=\n## |\Z)", re.S)
     m = pat.search(text)
@@ -43,7 +42,7 @@ def main() -> int:
         if p.name in SKIP:
             continue
         text = p.read_text(encoding="utf-8", errors="replace")
-         h in HEADERS:
+         for h in HEADERS:
             body = section_body(text, h)
             if not has_real_bullet(body):
                 bad += 1
