@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+!/usr/bin/env python3
 import re
 from pathlib import Path
 import sys
@@ -15,7 +15,8 @@ HEADERS = [
     "## Discriminating tests",
 ]
 
-def section_body(text: str, header: str) -> str:
+def section_body(text: str, header: str) -> st
+r
     # crude but robust: capture from header to next "## "
     pat = re.compile(re.escape(header) + r"\n(.*?)(?=\n## |\Z)", re.S)
     m = pat.search(text)
@@ -24,7 +25,7 @@ def section_body(text: str, header: str) -> str:
 def has_real_bullet(body: str) -> bool:
     lines = [l.strip() for l in body.splitlines() if l.strip()]
     bullets = [l for l in lines if l.startswith("- ")]
-    if not bullets:
+   if not bullets:
         return False
     for b in bullets:
         if "TODO" in b.upper():
@@ -42,7 +43,7 @@ def main() -> int:
         if p.name in SKIP:
             continue
         text = p.read_text(encoding="utf-8", errors="replace")
-        for h in HEADERS:
+         h in HEADERS:
             body = section_body(text, h)
             if not has_real_bullet(body):
                 bad += 1
@@ -52,8 +53,10 @@ def main() -> int:
         print(f"\n{bad} section(s) incomplete (contain only TODO or no bullets).")
         return 1
 
+
     print("OK: protocol completeness checks passed.")
     return 0
 
 if __name__ == "__main__":
     sys.exit(main())
+#
