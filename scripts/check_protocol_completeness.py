@@ -42,7 +42,7 @@ def main() -> int:
         if p.name in SKIP:
             continue
         text = p.read_text(encoding="utf-8", errors="replace")
-         for h in HEADERS:
+        for h in HEADERS:
             body = section_body(text, h)
             if not has_real_bullet(body):
                 bad += 1
