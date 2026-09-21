@@ -10,4 +10,4 @@
    - `protocols/long_horizon.md`
 3. Use `maintenance.md` when changing rules or evals.
 
-Legacy protocol filenames are retained as short redirects where useful, so existing links do not silently fail.
+The v1 protocol filenames and response templates were retired. Use the module paths above; old protocol URLs are not redirects. Earlier content remains recoverable from Git history.
