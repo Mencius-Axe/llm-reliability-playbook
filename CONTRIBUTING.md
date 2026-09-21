@@ -1,30 +1,19 @@
 # Contributing
 
-## Scope
-This repo is a set of short, testable procedures for common LLM failure modes, plus tiny evals and CI checks.
+Read `docs/maintenance.md` before changing a rule.
 
-## Adding a protocol
-1. Create or edit a file in `docs/protocols/`.
-2. Include these required sections (CI enforces them for protocol pages):
-   - `# Protocol: ...`
-   - `## Triggers`
-   - `## Anti-triggers`
-   - `## Minimal procedure (≤10 steps)`
-   - `## Common failure modes`
-   - `## Worked examples`
-   - `## Discriminating tests`
+## Modules
 
-## Adding eval items
-- Add JSONL records to `evals/*.jsonl`.
-- Each line must be valid JSON with keys:
-  - `id`, `task_type`, `prompt`, `must_include` (list), `must_not_include` (list)
-- Run: `make check`
+Each risk module states:
 
-## Style rules
-- Prefer decision procedures over prose.
-- Prefer discriminating tests over checklists.
-- If uncertainty affects correctness, require an explicit `UNCLEAR` marker + a request for the missing input.
+- **Risk** — failure being prevented.
+- **Use when / Skip when** — trigger and anti-trigger.
+- **Invariants** — outcomes that must hold.
+- **Minimal checks** — smallest useful intervention.
+- **Escalate when** — conditions requiring more evidence or caution.
 
-## Pull requests
-- Keep PRs small and single-purpose.
-- CI must pass (`make check` locally).
+## Evals
+
+JSONL records require `id`, `task_type`, `prompt`, `failure_class`, `required_behavior`, `forbidden_behavior`, `severity`, `origin`, `case_kind`, `must_include`, and `must_not_include`. Include/exclude strings may be empty; they are for genuinely deterministic properties, not proxies for reasoning quality.
+
+Pair trigger cases with anti-triggers when a safeguard could over-activate. Run `make check` before opening a pull request.

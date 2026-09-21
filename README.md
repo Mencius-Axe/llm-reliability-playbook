@@ -1,29 +1,17 @@
 # LLM Reliability Playbook
 
-[![CI](https://github.com/Mencius-Axe/llm-reliability-playbook/actions/workflows/ci.yml/badge.svg)](https://github.com/Mencius-Axe/llm-reliability-playbook/actions/workflows/ci.yml)
+A versioned collection of known failure hypotheses, minimal countermeasures, and regression tests for deciding whether those countermeasures still earn their cost.
 
-A compact set of *procedures* for reducing predictable LLM failure modes (symbol-level errors, arithmetic/units slips, OCR/perception mistakes, debugging ambiguity, recency drift, and speculative overreach).
+This repository is a selective engineering aid, not a mandatory response format or a second system prompt. Apply the [core invariants](docs/core_invariants.md) broadly and consult a risk module only when its failure mode is plausible and consequential. Do not expose routing, checklists, confidence scores, or protocol markers unless they help the user.
 
-## Start here
-- Protocol index: `docs/index.md`
-- Copy/paste templates: `templates/`
-- Evals (JSONL): `evals/`
+## Architecture
 
-## How to use (fast)
-1. Identify the task type using the **Failure-Point Index** (`docs/index.md`).
-2. Apply the corresponding **protocol** (minimal steps, then a discriminating test if needed).
-3. For factual or time-sensitive claims: **browse + cite** sources.
-4. Append **Calibration**: `Confidence X/5; would change if Y`.
+- **Core invariants** — source authority, constraint preservation, read-before-write, limited blast radius, end-state verification, and stopping when done.
+- **Risk modules** — small checks for precision, perception/UI, diagnosis, evidence, persistent actions, and long-horizon work.
+- **Evals and maintenance** — observed regressions, synthetic variants, anti-trigger pairs, efficiency measures, and rule retirement.
 
-## Local checks
-`make check`
+Start with [docs/index.md](docs/index.md). Run `make check` after changes.
 
-## What’s inside
-- `llm_reliability_playbook.md` — original seed/index
-- `docs/` — expanded protocols with triggers, steps, failure modes, and worked examples
-- `templates/` — copy/paste snippets for prompts and reviews
-- `evals/` — tiny test sets to catch regressions
-- `.github/workflows/` — CI checks (structure + schemas)
+## Design objective
 
-## Contributing
-See `CONTRIBUTING.md`.
+Maximize expected avoided error per unit of added intervention. A safeguard that no longer improves outcomes, or costs more than it prevents, should be simplified or retired.

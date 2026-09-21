@@ -1,16 +1,13 @@
-# Protocol Index
+# Reliability Library
 
-Use this page to route to the right protocol quickly.
+1. Read `core_invariants.md` for the compact universal layer.
+2. Consult only the relevant risk module:
+   - `protocols/precision.md`
+   - `protocols/perceptual_ui.md`
+   - `protocols/diagnosis_causality.md`
+   - `protocols/evidence_provenance.md`
+   - `protocols/persistent_actions.md`
+   - `protocols/long_horizon.md`
+3. Use `maintenance.md` when changing rules or evals.
 
-## Failure-Point Index
-- **Symbol-level (strings/IDs/paths/commands)** → `protocols/symbol_level.md`
-- **Arithmetic + units** → `protocols/arithmetic_units.md`
-- **Perceptual / OCR / UI / PDF** → `protocols/perceptual_ocr.md`
-- **Debugging (hidden state / config / drivers / networks)** → `protocols/debugging_hidden_state.md`
-- **Recency + facts (anything time-sensitive)** → `protocols/recency_facts.md`
-- **Speculation (competing models required)** → `protocols/speculative_theory.md`
-- **Acceptance criteria (definition of done)**: `protocols/acceptance_criteria.md`
-
-## Global modules
-- Anti-sycophancy guardrails → `protocols/anti_sycophancy.md`
-- Calibration format → `protocols/calibration.md`
+Legacy protocol filenames are retained as short redirects where useful, so existing links do not silently fail.

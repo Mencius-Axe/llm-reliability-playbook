@@ -1,19 +1,15 @@
-.PHONY: check protocol evals
+.PHONY: check modules evals links junk
 
-check: protocol complete evals links junk
+check: modules evals links junk
 
-protocol:
-	python3 scripts/check_protocol_structure.py
+modules:
+	python3 scripts/check_modules.py
 
 evals:
-	python3 scripts/check_evals_schema.py
-	python3 scripts/check_evals_quality.py
+	python3 scripts/check_evals.py
 
 links:
 	python3 scripts/check_doc_links.py
-
-complete:
-	python3 scripts/check_protocol_completeness.py
 
 junk:
 	python3 scripts/check_no_paste_junk.py

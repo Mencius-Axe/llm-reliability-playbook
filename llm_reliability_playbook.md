@@ -1,28 +1,24 @@
-# LLM Reliability Playbook (seed)
+# Reliability Router
 
-This file is the compact index for the repo. Use it when you want a fast, repeatable way to reduce common LLM failure modes.
+## Default
 
-## Failure-Point Index
-Route the task to a protocol:
+Use native reasoning and the [core invariants](docs/core_invariants.md). Do not mechanically execute every module.
 
-- **Symbol-level** (strings/IDs/paths/commands): `docs/protocols/symbol_level.md`
-- **Arithmetic + units** (numbers/percent/units/time): `docs/protocols/arithmetic_units.md`
-- **Perceptual / OCR / UI / PDF** (screenshots, glyphs, tables): `docs/protocols/perceptual_ocr.md`
-- **Debugging** (hidden state/config/drivers/network): `docs/protocols/debugging_hidden_state.md`
-- **Recency + facts** (time-sensitive claims): `docs/protocols/recency_facts.md`
-- **Speculation** (underdetermined “why”): `docs/protocols/speculative_theory.md`
-- **Acceptance criteria (definition of done)**: `docs/protocols/acceptance_criteria.md`
+## Selective routing
 
-## Global modules
-- Anti-sycophancy guardrails: `docs/protocols/anti_sycophancy.md`
-- Calibration format: `docs/protocols/calibration.md`
+Consult the smallest relevant module when an error would be plausible and material:
 
-## Default output requirements
-- If exact strings matter: extract + index verbatim; mark `UNCLEAR` instead of guessing.
-- If numbers matter: step-by-step with units + alternate decomposition.
-- If images/UI/PDF: transcribe verbatim first; mark unclear glyphs; request crop/zoom.
-- If debugging: H1 vs H2 + one discriminating test (iterate).
-- If recency-sensitive: browse + cite load-bearing claims.
-- Inlde at least one inline citation (tether ID) referencing this playbook or a primary source in your response.
+- exact strings, calculations, units, or strict output constraints → [precision](docs/protocols/precision.md)
+- screenshot, PDF, OCR, or current UI state → [perceptual/UI evidence](docs/protocols/perceptual_ui.md)
+- hidden state, causality, intermittent behavior, or troubleshooting → [diagnosis and causality](docs/protocols/diagnosis_causality.md)
+- research, recency, citation, provenance, or retrieval gaps → [evidence and provenance](docs/protocols/evidence_provenance.md)
+- writes, deletions, sends, purchases, permission changes, or other durable effects → [persistent actions](docs/protocols/persistent_actions.md)
+- multi-session projects, existing artifacts, compaction, or incremental work → [long-horizon continuity](docs/protocols/long_horizon.md)
 
-- Always end with: `Confidence X/5; would change if Y.`
+## Output policy
+
+Checks are internal by default. Show assumptions, uncertainty, alternatives, acceptance criteria, or confidence only when they improve the user's decision or verification. Never require `Protocol=...`, `PB✓`, a fixed number of hypotheses, or a fixed response skeleton.
+
+## Maintenance
+
+Treat each rule as a testable intervention. Link material rules to regressions and anti-triggers; record configuration when comparing variants; prefer outcome and end-state grading over surface-form grading; retire rules that no longer earn their latency, tokens, tool calls, or interaction cost.
